@@ -12,7 +12,7 @@ Getting first-class Codex support took eight major integration steps:
 
 1. Bundle the Codex SDK and native executable.
 2. Build Codex-native login and session management.
-3. Publish Luna through VS Code's model machinery.
+3. Connect Codex and its Luna model to VS Code's model machinery.
 4. Redirect every utility-model back road away from GitHub CAPI.
 5. Remove the Copilot entitlement and sign-in gates.
 6. Translate Codex streaming events into the agent UI.
@@ -25,7 +25,7 @@ Eight steps. To make an editor accept that perhaps the person sitting at the com
 
 Copilot's model picker had the energy of a restaurant handing you a twelve-page menu, asking you to create an account, checking your subscription tier, and then revealing that tonight's special is one allegedly blessed model with a usage meter attached.
 
-X-IDE publishes GPT-5.6 Luna through Codex and stops pretending that a vendor ID is a sacred bloodline. The old `copilot` identifier survives internally because VS Code has welded it into half the building; it is now plumbing, not a landlord.
+We have not published GPT-5.6 Luna. We have integrated Codex into the GitHub Copilot extension and exposed Codex's model through the existing interface; X-IDE rewires the harness, not the model. The old `copilot` identifier survives internally because VS Code has welded it into half the building; it is now plumbing, not a landlord.
 
 ## Autocomplete without a tiny accountant
 

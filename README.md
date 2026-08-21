@@ -19,7 +19,7 @@ This is my dream version of VS Code—the familiar editor I wanted to keep, with
 ### Added
 
 - First-class Codex authentication through the bundled Codex CLI.
-- **GPT-5.6 Luna** as the single agent model exposed through VS Code's existing model slot.
+- Codex integrated into the bundled GitHub Copilot extension, with **GPT-5.6 Luna** exposed as the current agent model through VS Code's existing model slot.
 - Codex SDK streaming for chat, reasoning/progress, command execution, file changes and MCP activity.
 - A deterministic repository-aware autocomplete engine with an optional small Ollama fill-in-the-middle quality layer.
 - Local autocomplete that works offline, does not consume Copilot requests and has no Copilot request quota.
@@ -36,7 +36,7 @@ Instead:
 
 1. The Codex SDK and platform binaries are bundled into the extension.
 2. A native Codex service owns login, executable discovery, sandbox configuration and streamed threads.
-3. The existing language-model slot publishes only GPT-5.6 Luna, labelled as Codex.
+3. The existing language-model slot registers Codex-backed GPT-5.6 Luna without routing requests through GitHub CAPI.
 4. Main chat, titles, summaries and utility-model work route back through Codex instead of GitHub CAPI.
 5. Model selection and activation no longer mint or require a GitHub token.
 6. Codex events are translated into VS Code's agent progress and response parts.
@@ -44,6 +44,8 @@ Instead:
 8. The completion bridge uses the local repository engine and activates without a Copilot token.
 
 That was eight major integration steps to turn a deeply Copilot-shaped backend into a Codex-backed harness without throwing away VS Code's excellent agent UI.
+
+We have **not published GPT-5.6 Luna**. We have integrated Codex into the bundled GitHub Copilot extension and VS Code agent interface; the model itself is supplied through Codex.
 
 ## Limits, honestly
 
@@ -85,8 +87,8 @@ Next major milestone: a Windows installer and clean release packaging.
 
 ## Licensing and attribution
 
-X-IDE is derived from Microsoft's [Code OSS](https://github.com/microsoft/vscode), whose inherited source remains available under the [MIT licence](LICENSE.txt). The bundled Copilot-derived extension is also distributed under its existing [MIT licence](extensions/copilot/LICENSE.txt).
+X-IDE is licensed under the [MIT licence](LICENSE-XIDE.txt). It is derived from Microsoft's [Code OSS](https://github.com/microsoft/vscode), whose inherited source retains its [MIT licence and copyright notice](LICENSE.txt). The bundled Copilot-derived extension also retains its existing [MIT licence](extensions/copilot/LICENSE.txt).
 
-Original X-IDE-specific additions are offered under [Apache License 2.0](LICENSE-XIDE.txt). Existing third-party notices and licences continue to apply to their respective components. X-IDE is an independent project and is not affiliated with or endorsed by Microsoft, GitHub or OpenAI.
+Existing third-party notices and licences continue to apply to their respective components. X-IDE is an independent project and is not affiliated with or endorsed by Microsoft, GitHub or OpenAI.
 
 For the less diplomatic architectural review, see [ROAST.md](ROAST.md).
